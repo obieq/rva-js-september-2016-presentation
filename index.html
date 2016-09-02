@@ -1,134 +1,213 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h2>Project Management</h2>
-					Pivotal Tracker
-				</section>
-				<section data-background-image="images/pivotal_tracker.png">
-				</section>
-				<section>
-					<h2>Source Control</h2>
-					<ul>
-						<li><a target="_blank" href="https://en.wikipedia.org/wiki/Git_(software)">Git</a></li>
-						<li><a target="_blank" href="http://nvie.com/posts/a-successful-git-branching-model/">Branching</a></li>
-						<li>Merging</li>
-						<li>Tagging</li>
-						<li><a target="_blank" href="https://github.com/obieq?tab=repositories">GitHub</a></li>
-					</ul>
-				</section>
-				<section>
-					<h2>Configuration</h2>
-					(Nick)
-				</section>
-				<section>
-					<h2>Validation</h2>
-					(Nick)
-				</section>
-				<section>
-					<h2>Error Handling</h2>
-					(Nick)
-				</section>
-				<section>
-					<h2>Web Service Calls</h2>
-					(Nick)
-				</section>
-				<section>
-					<h2>Logging</h2>
-					(Nick)
-				</section>
-				<section>
-					<h2>A/B Testing</h2>
-					(John)
-				</section>
-				<section>
-					<h2>Building</h2>
-					(Nick)
-				</section>
-				<section>
-					<h2>CI & CD</h2>
-					<ul>
-						<li>git commit & push</li>
-						<li><a target="_blank" href="https://codeship.com/projects/133105">Codeship</a> or <a target="_blank" href="https://circleci.com/">circleci</a></li>
-						<li>Build</li>
-						<li>Test</li>
-						<li>Deploy</li>
-						<li>Notifications</li>
-					</ul>
-				</section>
-				<section>
-					<h2>Automated Testing</h2>
-					<ul>
-						<li><a target="_blank" href="https://github.com/elephant-insurance/hank">Hank</a></li>
-						<li><a target="_blank" href="http://www.seleniumhq.org/projects/grid/">Selenium Grid</a></li>
-						<li>Angular Client</li>
-						<li>.NET Web API</li>
-						<li>Postgresql DB</li>
-						<li>Target Multiple Browsers</li>
-						<li>Target Multiple Operating Systems</li>
-					</ul>
-				</section>
-				<section>
-					<h2>DEVOPS: Monitoring & Alerting</h2>
-					<ul>
-						<li><a target="_blank" href="https://www.loggly.com">Loggly</a></li>
-						<li><a target="_blank" href="https://newrelic.com">New Relic</a></li>
-						<li><a target="_blank" href="https://www.pingdom.com">Pingdom</a></li>
-						<li><a target="_blank" href="https://www.pagerduty.com">PagerDuty</a></li>
-						<li><a target="_blank" href="https://fullstory.com">FullStory</a></li>
-					</ul>
-				</section>
-				<section>
-					<h2>Reporting & Feedback</h2>
-					<ul>
-						<li><a target="_blank" href="https://www.segment.com">Segment</a></li>
-						<li><a target="_blank" href="https://cloud.google.com/bigquery">Google Big Query</a></li>
-						<li><a target="_blank" href="https://www.google.com/analytics">Google Analytics</a></li>
-						<li><a target="_blank" href="https://qualaroo.com">Qualaroo</a></li>
-					</ul>
-				</section>
-			</div>
-		</div>
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2>Project Management</h2>
+                Pivotal Tracker
+            </section>
+            <section data-background-image="images/pivotal_tracker.png"></section>
+            <section>
+                <h2>Source Control</h2>
+                <ul>
+                    <li><a target="_blank" href="https://en.wikipedia.org/wiki/Git_(software)">Git</a></li>
+                    <li><a target="_blank" href="http://nvie.com/posts/a-successful-git-branching-model/">Branching</a></li>
+                    <li>Merging</li>
+                    <li>Tagging</li>
+                    <li><a target="_blank" href="https://github.com/obieq?tab=repositories">GitHub</a></li>
+                </ul>
+            </section>
+            <section data-autoslide="7000">
+                <h2>Configuration</h2>
+                <p>Today’s mission-critical solutions require complex infrastructure and customer-unique environmental configurations.</p>
+                <ul>
+                    <li class="fragment" data-autoslide="1000">Development</li>
+                    <li class="fragment" data-autoslide="1000">Quality Assurance</li>
+                    <li class="fragment" data-autoslide="1000">Production</li>
+                </ul>
+                <p class="fragment" data-autoslide="5000"></p>
+                <aside class="notes">
+                    Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+                </aside>
+            </section>
+            <section>
+                <h2>Enconfig.js</h2>
+                <pre><code data-trim data-noescape>
+                                             'use strict';
+    angular.module('environment.config', [])
+      .constant('environmentLink', {
+        goGeoDataApi: '@@goGeoDataApi',
+        ancillaryData: '@@ancillaryData',
+        vinIsoData: '@@vinIsoData',
+        externalApi: '@@externalApi',
+        goApi:'@@goApi',
+        cdnBase: '@@cdnBase',
+        environment: '@@environment',
+        source: "web-quote",
+        idleDuration: '@@idleDuration',
+        warningDuration: '@@warningDuration'
+      })
+      .constant('logLevel', {
+        level: '@@loggingLevel'
+      })
+      .constant('googleTracking', {
+        googleTrackingId: '@@googleTrackingId'
+      })
+      .constant('appDynamics', {
+        appDynamicsId: '@@appDynamicsId'
+      })
+      .constant('constDataPrefill',{
+        enabled:'@@dataPrefillEnabled'
+      })
+    ;
+                </code></pre>
+            </section>
+            <section>
+                <h2>CI.json</h2>
+                <pre><code data-trim data-noescape>
+                          {
+  "goApi": "https://ms-quote-intent-ci.qa-elephant.com/v1",
+  "goGeoDataApi": "https://ms-geo-data-ci.qa-elephant.com/v1/postal-codes",
+  "ancillaryData": "https://eaa-ci.qa-elephant.com/api",
+  "vinIsoData": "https://eaa-ci.qa-elephant.com/api/viniso",
+  "externalApi": "https://eea-ci.qa-elephant.com/api",
+  "cdnBase": "https://d3fhhs9p88piuc.cloudfront.net",
+  "environment": "ci",
+  "loggingLevel": "debug",
+  "googleTrackingId": "UA-58770845-1",
+  "appDynamicsId": "AD-AAB-AAA-CCU",
+  "dataPrefillEnabled": true,
+  "idleDuration": 300,
+  "warningDuration": 30
+}
+                </code></pre>
+            </section>
+            <section>
+                <h2>Grunt Replace</h2>
+                <p>Using grunt replace we are able to update the @@ variables and replace them with the items from our json file</p>
+                <pre><code data-trim data-noescape>
+                         ci: {
+        options: {
+          patterns: [{
+            json: grunt.file.readJSON('./config/environments/ci.json')
+          }]
+        },
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ['config/envconfig.js'],
+          dest: '<%= yeoman.app %>/scripts/Utilities/environment/'
+        }]
+      },
+                </code></pre>
+            </section>
+            <section>
+                <h2>Validation</h2>
+                (Nick)
+            </section>
+            <section>
+                <h2>Error Handling</h2>
+                (Nick)
+            </section>
+            <section>
+                <h2>Web Service Calls</h2>
+                (Nick)
+            </section>
+            <section>
+                <h2>Logging</h2>
+                (Nick)
+            </section>
+            <section>
+                <h2>A/B Testing</h2>
+                (John)
+            </section>
+            <section>
+                <h2>Building</h2>
+                (Nick)
+            </section>
+            <section>
+                <h2>CI & CD</h2>
+                <ul>
+                    <li>git commit & push</li>
+                    <li><a target="_blank" href="https://codeship.com/projects/133105">Codeship</a> or <a target="_blank" href="https://circleci.com/">circleci</a></li>
+                    <li>Build</li>
+                    <li>Test</li>
+                    <li>Deploy</li>
+                    <li>Notifications</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Automated Testing</h2>
+                <ul>
+                    <li><a target="_blank" href="https://github.com/elephant-insurance/hank">Hank</a></li>
+                    <li><a target="_blank" href="http://www.seleniumhq.org/projects/grid/">Selenium Grid</a></li>
+                    <li>Angular Client</li>
+                    <li>.NET Web API</li>
+                    <li>Postgresql DB</li>
+                    <li>Target Multiple Browsers</li>
+                    <li>Target Multiple Operating Systems</li>
+                </ul>
+            </section>
+            <section>
+                <h2>DEVOPS: Monitoring & Alerting</h2>
+                <ul>
+                    <li><a target="_blank" href="https://www.loggly.com">Loggly</a></li>
+                    <li><a target="_blank" href="https://newrelic.com">New Relic</a></li>
+                    <li><a target="_blank" href="https://www.pingdom.com">Pingdom</a></li>
+                    <li><a target="_blank" href="https://www.pagerduty.com">PagerDuty</a></li>
+                    <li><a target="_blank" href="https://fullstory.com">FullStory</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Reporting & Feedback</h2>
+                <ul>
+                    <li><a target="_blank" href="https://www.segment.com">Segment</a></li>
+                    <li><a target="_blank" href="https://cloud.google.com/bigquery">Google Big Query</a></li>
+                    <li><a target="_blank" href="https://www.google.com/analytics">Google Analytics</a></li>
+                    <li><a target="_blank" href="https://qualaroo.com">Qualaroo</a></li>
+                </ul>
+            </section>
+        </div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+    <script>
+        // More info https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            history: true,
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+            // More info https://github.com/hakimel/reveal.js#dependencies
+            dependencies: [
+                { src: 'plugin/markdown/marked.js' },
+                { src: 'plugin/markdown/markdown.js' },
+                { src: 'plugin/notes/notes.js', async: true },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } }
+            ]
+        });
+    </script>
+</body>
 </html>

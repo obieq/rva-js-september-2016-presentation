@@ -125,19 +125,82 @@
             </section>
             <section>
                 <h2>Validation</h2>
-                (Nick)
+                <p>Angular input and form states provide options but.... </p>
+                <ul>
+                    <li>Displaying multiple errors for a single input control</li>
+                    <a target="_blank" href="https://docs.angularjs.org/api/ngMessages/directive/ngMessage">ngMessage</a>
+                    <li>Custom validation</li>
+                </ul>
+            </section>
+            <section>
+
             </section>
             <section>
                 <h2>Error Handling</h2>
-                (Nick)
+                <p>What happens when your system encounters an error?</p>
+                <ul>
+                    <li>Error Service - Factory that provides methods for managing errors</li>
+                    <li>Modal Service - Factory that provides methods for displaying errors</li>
+                </ul>
+            </section>
+            <section>
+            <h2>Error Service</h2>
+            <p>When an error occurs!</p>
+            <ul>
+                <li>showSystemError</li>
+                <pre><code data-trim data-noescape>
+                        showSystemError: function(errorText, error){
+          $log.error(errorText, error);
+          spinnerService.hideAll();
+          modalService.showSystemError(error);
+        },
+                    </code></pre>
+                <li>showModalError</li>
+                <pre><code data-trim data-noescape>
+                        showModalError: function (errorText, error) {
+          $log.error(errorText, error);
+          spinnerService.hideAll();
+          modalService.showError(errorMessageInfo.modalTitle, errorMessageInfo.modalDescription,
+                        errorMessageInfo.iconClass, errorMessageInfo.modalClass);
+        },
+                    </code></pre>
+            </ul>
+        </section>
+            <section>
+                <h2>Modal Service</h2>
+                <p>Display the user friendly error!</p>
+                <ul>
+                    <li>showSystemError</li>
+                    <pre><code data-trim data-noescape>
+                        showSystemError: function (error) {
+        return _showSystemError($uibModal, error);
+      },
+                    </code></pre>
+                    <li>showError</li>
+                    <pre><code data-trim data-noescape>
+                        showError: function (title, message, iconClass, description, actionLabel, actionBtnClass) {
+        var actionProperties = {
+          label: actionLabel || 'Close',
+          btnClass: actionBtnClass
+        };
+        return _showMessage($uibModal, title, message, description, actionProperties, iconClass, null, null, false);
+      },
+                    </code></pre>
+                </ul>
             </section>
             <section>
                 <h2>Web Service Calls</h2>
-                (Nick)
+                <ul>
+                    <li><a target="_blank" href="https://www.loggly.com/">Loggly</a></li>
+
+                </ul>
             </section>
             <section>
                 <h2>Logging</h2>
-                (Nick)
+                <ul>
+                    <li><a target="_blank" href="https://www.loggly.com/">Loggly</a></li>
+
+                </ul>
             </section>
             <section>
                 <h2>A/B Testing</h2>

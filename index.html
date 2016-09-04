@@ -138,6 +138,32 @@
                 <h2>ngMessage example</h2>
             </section>
             <section>
+                <h2>Custom validation example</h2>
+                <pre><code data-trim data-noescape>
+                    this.validateDOB = function () {
+        //if no customerDob then nothing to validate
+        if(!instance || !instance.form || !instance.form.customerDob)
+        {
+          return;
+        }
+        if (instance && instance.ngModel) {
+          var m = moment.utc(instance.ngModel.substring(0, 10), ['MMDDYYYY', 'MM-DD-YYYY'], true);
+          var valid = m.isValid();
+
+          if (valid) {
+            instance.form.customerDob.$setValidity('datetime', true);
+            var age = moment(new Date()).diff(m, 'years');
+            instance.form.customerDob.$setValidity('agerange', age >= instance.minAge && age <= instance.maxAge);
+          } else {
+            instance.form.customerDob.$setValidity('datetime', false);
+          }
+        } else {
+          instance.form.customerDob.$setValidity('datetime', false);
+        }
+      };
+                    </code></pre>
+            </section>
+            <section>
                 <h2>Error Handling</h2>
                 <p>What happens when your system encounters an error?</p>
                 <ul>
@@ -193,9 +219,70 @@
             <section>
                 <h2>Web Service Calls</h2>
                 <ul>
-                    <li><a target="_blank" href="https://www.loggly.com/">Loggly</a></li>
-
+                    <li>$http</li>
+                    <li>$resource</li>
+                    <li><a target="_blank" href="https://github.com/mgonto/restangular">Restangular</a></li>
                 </ul>
+            </section>
+            <section>
+                <h2>Restangular</h2>
+                <p>Restangular is an AngularJS service that simplifies common GET, POST, DELETE, and UPDATE requests with a minimum of client code.  </p>
+            </section>
+            <section>
+                <h2>Restangular Example</h2>
+                <pre><code data-trim data-noescape>
+                    .factory('goGeoDataApiService', ['Restangular', 'environmentLink', function (Restangular, environmentLink) {
+    return Restangular.withConfig(function (restangularConfigurer) {
+      restangularConfigurer.setFullResponse(true);
+      restangularConfigurer.setBaseUrl(environmentLink.goGeoDataApi);
+
+    });
+  }])
+                    </code></pre>
+                <pre><code data-trim data-noescape>
+                    .service('goGeoDataService', GoGeoDataService())
+                    </code></pre>
+            </section>
+            <section>
+                <h2>Restangular Example part 2</h2>
+                <pre><code data-trim data-noescape>
+                   var timeoutInMilliseconds = 60000;
+
+      this.getTimeout = function () {
+        return timeoutInMilliseconds;
+      };
+
+      this.getPostalCodeData = function (postalCode) {
+        if (postalCode) {
+          $log.debug(String.format('goGeoDataApiService: calling postal-codes for postal code {0}', postalCode));
+          var s = segmentIoTrackingService.start();
+          var newResDeferred = $q.defer();
+          goGeoDataApiService.one(postalCode).withHttpConfig({timeout: this.getTimeout()}).get()
+            .then(function (result) {
+                if (result.data.hasOwnProperty('data') && result.data.data.hasOwnProperty('attributes')) {
+                  newResDeferred.resolve(result.data.data.attributes);
+                  segmentIoTrackingService.end(s, environmentLink.goGeoDataApi, 'success', 'get');
+                } else {
+                  newResDeferred.reject('goGeoDataApiService call did not contain data');
+                  $log.error(String.format('goGeoDataApiService: getPostalCodeData - failed for postal code {0}, no data returned', postalCode));
+                  segmentIoTrackingService.end(s, environmentLink.goGeoDataApi, 'error', 'get');
+                }
+              }, function (error) {
+                newResDeferred.reject('goGeoDataApiService call failed with http status ' + error.status);
+                $log.error(String.format('goGeoDataApiService: getPostalCodeData - failed calling geodata-lookup for postal code {0} with http status {1}', postalCode, error.status));
+                segmentIoTrackingService.end(s, environmentLink.goGeoDataApi, 'error', 'get');
+              }
+            );
+          return newResDeferred.promise;
+        } else {
+          var rejected = $q.defer();
+          rejected.reject('PostalCode is required for postal code lookup');
+          $log.error('goGeoDataApiService: getPostalCodeData - postalCode is required for postal code lookup');
+          return rejected.promise;
+        }
+      }
+    }];
+                    </code></pre>
             </section>
             <section>
                 <h2>Logging</h2>

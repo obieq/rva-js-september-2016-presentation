@@ -333,9 +333,9 @@
                 <h2>A/B Testing</h2>
                 <h3>Third party options</h3>
                 <ul>
-                    <li>Optimizely (expensive but powerful)</li>
-                    <li>Convert</li>
-                    <li>Visual Web Optimizer</li>
+                    <li class="fragment" data-autoslide="1000">Optimizely (expensive but powerful)</li>
+                    <li class="fragment" data-autoslide="1000">Convert</li>
+                    <li class="fragment" data-autoslide="1000">Visual Web Optimizer</li>
                 </ul>
             </section>
             <section>
@@ -399,18 +399,18 @@ try{
             <section>
                 <h2>A/B Testing Issues</h2>
                 <ul>
-                    <li>Timing</li>
-                    <li>New Functionality without builds</li>
-                    <li>Chained testing</li>
-                    <li>Accurate test firing</li>
+                    <li class="fragment" data-autoslide="1000">Timing</li>
+                    <li class="fragment" data-autoslide="1000">New Functionality without builds</li>
+                    <li class="fragment" data-autoslide="1000">Chained testing</li>
+                    <li class="fragment" data-autoslide="1000">Accurate test firing</li>
                 </ul>
             </section>
             <section>
                 <h2>Tips and Tricks</h2>
                 <ul>
-                    <li>Push logic to the A/B testing framework to keep base code generic</li>
-                    <li>Set a state in the testing framework to guard against multi-firing</li>
-                    <li>Trigger all test on a specific hash via $onStateChange</li>
+                    <li class="fragment" data-autoslide="1000">Push logic to the A/B testing framework to keep base code generic</li>
+                    <li class="fragment" data-autoslide="1000">Set a state in the testing framework to guard against multi-firing</li>
+                    <li class="fragment" data-autoslide="1000">Trigger all test on a specific hash via $onStateChange</li>
                     <pre><code data-noescape>
 $rootScope.$on('$stateChangeStart',
     function (ev, to, toParams, from, fromParams) {

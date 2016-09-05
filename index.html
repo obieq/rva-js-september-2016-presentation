@@ -286,10 +286,31 @@
             </section>
             <section>
                 <h2>Logging</h2>
-                <ul>
-                    <li><a target="_blank" href="https://www.loggly.com/">Loggly</a></li>
-
-                </ul>
+                <a target="_blank" href="https://www.loggly.com/">Loggly</a>
+<p>Loggly offers a cloud-based service that mines tons of log data in real time and reveals what matters, so that you have the insights you need to produce quality code and deliver a great user experience.</p>
+            </section>
+            <section>
+                Logging Example
+            </section>
+            <section>
+                <h2>Tips and Tricks</h2>
+                <a target="_blank" href="https://github.com/rafaelcamargo/ng-surprise">ng-surprise</a>
+                <p>This is a AngularJS module to put Easter eggs in your application. Sometimes you need an Easter egg to allow your dev staff to skip some configuration step or close an uncloseable modal in your app. So, ng-surprise is an easy way to do that.</p>
+                &lt;div data-surprise=&quot;classicJourney1Driver1VehicleIL&quot; data-surprise-trigger=&quot;86,49,73,76,49,49&quot;&gt;&lt;/div&gt;
+            </section>
+            <section>
+                <h2>Tips and Tricks</h2>
+                <a target="_blank" href="https://github.com/HackedByChinese/ng-idle">ng-idle</a>
+                <p>You may wish to detect idle users and respond, for example, to log them out so their sensitive data is protected</p>
+                <pre><code data-trim data-noescape>
+                    .config(['$idleProvider', 'environmentLink', function ($idleProvider, environmentLink) {
+    console.log(environmentLink.idleDuration);
+    $idleProvider.idleDuration(environmentLink.idleDuration);
+    $idleProvider.warningDuration(environmentLink.warningDuration);
+    //$keepaliveProvider.interval(10);
+  }])
+  .run(IdleListener())
+                    </code></pre>
             </section>
             <section>
                 <h2>A/B Testing</h2>
@@ -297,6 +318,8 @@
             </section>
             <section>
                 <h2>Building</h2>
+                <pre><code data-trim data-noescape>
+                    </code></pre>
                 (Nick)
             </section>
             <section>

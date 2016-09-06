@@ -343,7 +343,93 @@
              </section>
             <section>
                 <h2>A/B Testing</h2>
-                (John)
+                <h3>Third party options</h3>
+                <ul>
+                    <li class="fragment" data-autoslide="1000">Optimizely (expensive but powerful)</li>
+                    <li class="fragment" data-autoslide="1000">Convert</li>
+                    <li class="fragment" data-autoslide="1000">Visual Web Optimizer</li>
+                </ul>
+            </section>
+            <section>
+                <h2>A/B Testing Site Functionality</h2>
+                   <p>
+                       &lt;body ng-app="consumerWeb.App" class="sign_up"><br/>
+                       &lt;div id="mainContent" ng-optimizely="" ui-view>&lt;/div><br/>&lt;/body&gt;
+                   </p>
+            </section>
+
+           <section>
+               <h2>A/B Testing Site Functionality</h2>
+                <p>Accessing $scope</p>
+               <pre>
+                   <code data-noescape>
+(function($) {
+var scope = angular.element($("#mainContent")).scope();
+var drivers = scope.drivers;
+var state = scope.policyHolder.Addresses[0].State;
+if ((state == "VA" || state == "TX") && drivers.length === 1) {
+    window.defaultLegal = true;
+}
+})(jQuery);
+               </code></pre>
+           </section>
+            <section>
+                <h2>Tracking A/B Tests</h2>
+                <p>Find out whats working</p>
+                <pre><code data-noescape>
+//tracking script
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i &lt ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+if(window.sessionStorage){
+    var quoteId = window.sessionStorage["quotes.elephant.quoteId"];
+    var journey = window.sessionStorage["quotes.elephant.journey"];
+}else{
+    var quoteId = getCookie("quotes.elephant.quoteId");
+}
+try{
+    var experimentId = 5281352667;
+    var bucket = window['optimizely'].data.state.variationNamesMap[experimentId];
+    analytics.track(experimentId+' '+bucket,{
+        category: 'Optimizely Test',
+        quoteNumber: quoteId,
+        source: 'web-quotes',
+        journey: journey
+    });
+} catch(e){
+    console.log(e);
+}
+                </code></pre>
+            </section>
+            <section>
+                <h2>A/B Testing Issues</h2>
+                <ul>
+                    <li class="fragment" data-autoslide="1000">Timing</li>
+                    <li class="fragment" data-autoslide="1000">New Functionality without builds</li>
+                    <li class="fragment" data-autoslide="1000">Chained testing</li>
+                    <li class="fragment" data-autoslide="1000">Accurate test firing</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Tips and Tricks</h2>
+                <ul>
+                    <li class="fragment" data-autoslide="1000">Push logic to the A/B testing framework to keep base code generic</li>
+                    <li class="fragment" data-autoslide="1000">Set a state in the testing framework to guard against multi-firing</li>
+                    <li class="fragment" data-autoslide="1000">Trigger all test on a specific hash via $onStateChange</li>
+                    <pre><code data-noescape>
+$rootScope.$on('$stateChangeStart',
+    function (ev, to, toParams, from, fromParams) {
+        return abTestingService.fire();
+});
+                    </code></pre>
+                </ul>
             </section>
             <section>
                 <h2>Building (Grunt)</h2>

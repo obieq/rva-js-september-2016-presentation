@@ -285,12 +285,17 @@
                     </code></pre>
             </section>
             <section>
-                <h2>Logging</h2>
+                <h2>Client Logging</h2>
                 <a target="_blank" href="https://www.loggly.com/">Loggly</a>
 <p>Loggly offers a cloud-based service that mines tons of log data in real time and reveals what matters, so that you have the insights you need to produce quality code and deliver a great user experience.</p>
             </section>
             <section>
-                Logging Example
+                <h2>Logging example</h2>
+                <p>Using the following <a target="_blank" href="https://docs.angularjs.org/guide/decorators">decorator</a> example</p>
+                <ul>
+                    <li>$provide.decorator</li>
+                    <li>$exceptionHandler</li>
+                </ul>
             </section>
             <section>
                 <h2>Tips and Tricks</h2>
@@ -326,18 +331,33 @@
                 <p>Directives to components</p>
             </section>
             <section>
-                <h2>Data Storage</h2>
-                <p>Local storage</p>
-            </section>
+                <h2>AngularJS is an MVC based framework.</h2>
+                <ul>
+                    <li>The Model</li>
+                    The model is responsible for managing application data. It responds to the request from view and to the instructions from controller to update itself.
+                    <li>The View</li>
+                    A presentation of data in a particular format, triggered by the controller's decision to present the data.
+                    <li>The Controller</li>
+                    The controller responds to user input and performs interactions on the data model objects. The controller receives input, validates it, and then performs business operations that modify the state of the data model.
+                </ul>
+             </section>
             <section>
                 <h2>A/B Testing</h2>
                 (John)
             </section>
             <section>
-                <h2>Building</h2>
+                <h2>Building (Grunt)</h2>
                 <pre><code data-trim data-noescape>
+                    grunt.registerTask('qa1-build', [
+    'replace:qa1',
+    'replace:xDomainQA1',
+    'replace:devIndex',
+    'compass',
+    'build',
+    'cdnify:qa1',
+    'compress'
+  ]);
                     </code></pre>
-                (Nick)
             </section>
             <section>
                 <h2>CI & CD</h2>
